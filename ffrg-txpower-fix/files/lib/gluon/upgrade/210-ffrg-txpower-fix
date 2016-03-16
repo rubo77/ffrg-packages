@@ -19,11 +19,31 @@ if uci:get('wireless', 'radio0', 'hwmode') then
 		hwmodeR1 = uci:get('wireless', 'radio1', 'hwmode')
 		if hwmodeR1 == '11na' then
 			interface50 = 'radio1'
+		elseif hwmodeR1 == '11a' then
+			interface50 = 'radio1'
+		end
+	elseif hwmode == '11g' then
+		interface24 = 'radio0'
+		hwmodeR1 = uci:get('wireless', 'radio1', 'hwmode')
+		if hwmodeR1 == '11na' then
+			interface50 = 'radio1'
+		elseif hwmodeR1 == '11a' then
+			interface50 = 'radio1'
 		end
 	elseif hwmode == '11na' then
 		interface50 = 'radio0'
 		hwmodeR1 = uci:get('wireless', 'radio1', 'hwmode')
 		if hwmodeR1 == '11ng' then
+			interface24 = 'radio1'
+		elseif hwmodeR1 == '11g' then
+			interface24 = 'radio1'
+		end
+	elseif hwmode == '11a' then
+		interface50 = 'radio0'
+		hwmodeR1 = uci:get('wireless', 'radio1', 'hwmode')
+		if hwmodeR1 == '11ng' then
+			interface24 = 'radio1'
+		elseif hwmodeR1 == '11g' then
 			interface24 = 'radio1'
 		end
 	else
